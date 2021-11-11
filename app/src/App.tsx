@@ -1,16 +1,12 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import { Ping } from './ping/Ping';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './routes';
+import { Auth0Provider } from '@auth0/auth0-react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Ping />
-      </header>
-    </div>
+    <></>
   );
 }
 

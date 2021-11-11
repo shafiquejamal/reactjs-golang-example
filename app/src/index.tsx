@@ -1,12 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
+import Routes from './routes';
+import config from './config'
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Router>
+      <Auth0Provider
+        domain={config.auth0_domain as string}
+        clientId={config.auth0_client_id as string}
+        redirectUri={config.auth0_redirect_uri as string}
+        useRefreshTokens={true}
+        cacheLocation="localstorage"
+      >
+        <Routes />
+      </Auth0Provider>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
